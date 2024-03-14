@@ -11,7 +11,7 @@ function App() {
 		<Header />
 		<div style={{ width: '100%', display: 'flex '}}>
 			<Menu />
-			<div style={{background: 'blue', width: '100%'}}>
+			<div style={{background: '#f8f8f8', width: '100%'}}>
 				
 			</div>
 		</div>

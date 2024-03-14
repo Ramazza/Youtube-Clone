@@ -1,0 +1,17 @@
+export const IMAGES = {
+	HOME: require('../assets/homepage.png'),
+	VIDEO_FILES: require('../assets/video-files.png'),
+	FOLDERS: require('../assets/folder.png'),
+	PLAY: require('../assets/play.png'),
+	BULB: require('../assets/bulb.png'),
+	CUP: require('../assets/cup.png'),
+	FIRE: require('../assets/fire.png'),
+	HISTORY: require('../assets/history.png'),
+	CONTROLLER: require('../assets/joystick.png'),
+	LIVE: require('../assets/live.png'),
+	MUSIC: require('../assets/music.png'),
+	NEWS: require('../assets/newspaper.png'),
+	SHOPPING_BAG: require('../assets/shopping-bag.png'),
+	LIBRARY: require('../assets/video-library.png'),
+	CLAPPER: require('../assets/clapperboard.png'),
+};
