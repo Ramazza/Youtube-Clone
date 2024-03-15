@@ -6,8 +6,7 @@ import Library from './pages/library';
 import History from './pages/history';
 import { useContext } from 'react';
 import { MenuContext } from './contexts/menuContext';
-
-// min-height: ${({ openMenu }) => openMenu? '45px': '70px'};
+import Login from './pages/login';
 
 
 function App() {
@@ -20,11 +19,12 @@ function App() {
 				<Header />
 				<div style={{ width: '100%', display: 'flex '}}>
 					<Menu />
-					<div style={{ width: menu? 'calc(100% - 250px)' : 'calc(100% - 70px)', padding: '15px 20px', boxSizing: 'border-box', display: 'flex', justifyContent: 'center' }}>
+					<div style={{ width: menu? 'calc(100% - 250px)' : 'calc(100% - 70px)', padding: '15px 20px', boxSizing: 'border-box'}}>
 						<Routes>
 							<Route path='/' element={<Home/>} />
 							<Route path='/library' element={<Library />} />
 							<Route path='/history' element={<History />} />
+							<Route path='/login' element={<Login />} />
 						</Routes>
 					</div>
 				</div>

@@ -17,10 +17,15 @@ import VideoIcon from '../../assets/video.png';
 import BellIcon from '../../assets/bell.png';
 import { useContext } from 'react';
 import { MenuContext } from '../../contexts/menuContext';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../contexts/userContext';
 
 function Header() {
 
+	const { login } = useContext(UserContext);
+
 	const {menu, setMenu} = useContext(MenuContext);
+	const navigate = useNavigate()
 
 	return (
 		<Container>
@@ -48,15 +53,20 @@ function Header() {
 			</SearchContainer>
 
 			<HeaderButtons>
-					<ButtonContainer>
+					<ButtonContainer margin='0 0 0 10px'>
 						<ButtonIcon alt='' src={VideoIcon} />
 					</ButtonContainer>
-					<ButtonContainer>
+					<ButtonContainer margin='0 0 0 10px'>
 						<ButtonIcon alt='' src={BellIcon} />
 					</ButtonContainer>
-					<ButtonContainer>
-						R
-					</ButtonContainer>
+
+					{login? 
+						<ButtonContainer margin='0 0 0 10px'>
+							R
+						</ButtonContainer>
+					:
+						<button onClick={() => navigate('/login')}>Fazer login</button>
+					}
 			</HeaderButtons>
 		</Container>
 	);
