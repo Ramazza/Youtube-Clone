@@ -3,33 +3,36 @@ import { useContext } from 'react';
 import { MenuContext } from '../../contexts/menuContext';
 import { ButtonIcon } from '../header/styles';
 import { IMAGES } from '../../constants/imageConstants';
+import { useNavigate } from 'react-router-dom';
 
 const items = [ 
-	{ nome: 'Início', source: IMAGES.HOME	},
-	{ nome: 'Shorts',	source: IMAGES.VIDEO_FILES },
-	{ nome: 'Inscrições', source: IMAGES.LIBRARY },
-	{ nome: 'Youtube Music', source: IMAGES.PLAY },
-	{ nome: 'Biblioteca', source: IMAGES.FOLDERS },
-	{ nome: 'Histórico',	source: IMAGES.HISTORY },
-	{ nome: 'Em alta', source: IMAGES.FIRE },
-	{ nome: 'Shopping', source: IMAGES.SHOPPING_BAG },
-	{ nome: 'Música',	source: IMAGES.MUSIC },
-	{ nome: 'Filmes', source: IMAGES.CLAPPER	},
-	{ nome: 'Ao vivo', source: IMAGES.LIVE },
-	{ nome: 'Jogos', source: IMAGES.CONTROLLER	},
-	{ nome: 'Notícias', source: IMAGES.NEWS },
-	{ nome: 'Esportes', source: IMAGES.CUP },
-	{ nome: 'Aprender', source: IMAGES.BULB },
+	{ nome: 'Início', source: IMAGES.HOME, link: '/' },
+	{ nome: 'Shorts',	source: IMAGES.VIDEO_FILES, link: '/' },
+	{ nome: 'Inscrições', source: IMAGES.LIBRARY, link: '/' },
+	{ nome: 'Youtube Music', source: IMAGES.PLAY, link: '/' },
+	{ nome: 'Biblioteca', source: IMAGES.FOLDERS, link: '/library' },
+	{ nome: 'Histórico',	source: IMAGES.HISTORY, link: '/history' },
+	{ nome: 'Em alta', source: IMAGES.FIRE, link: '/' },
+	{ nome: 'Shopping', source: IMAGES.SHOPPING_BAG, link: '/' },
+	{ nome: 'Música',	source: IMAGES.MUSIC, link: '/' },
+	{ nome: 'Filmes', source: IMAGES.CLAPPER, link: '/'	},
+	{ nome: 'Ao vivo', source: IMAGES.LIVE, link: '/' },
+	{ nome: 'Jogos', source: IMAGES.CONTROLLER, link: '/'	},
+	{ nome: 'Notícias', source: IMAGES.NEWS, link: '/' },
+	{ nome: 'Esportes', source: IMAGES.CUP, link: '/' },
+	{ nome: 'Aprender', source: IMAGES.BULB, link: '/' },
 ]
 
 function Menu() {
 
 	const {menu} = useContext(MenuContext);
 
+	const navigate = useNavigate();
+
 	return (
 		<Container openMenu={menu}>
 			{items.slice(0, 4).map((item, index) => (
-					<MenuItem key={index} openMenu={menu}>
+					<MenuItem key={index} openMenu={menu} onClick={() => navigate(item.link)}>
 						<ButtonIcon alt='' src={item.source} />
 						<span>{item.nome}</span>
 					</MenuItem>
@@ -37,7 +40,7 @@ function Menu() {
 			<OtherItems openMenu={menu}>
 			<Divider></Divider>
 				{items.slice(4, 6).map((item, index) => (
-						<MenuItem key={index} openMenu={menu}>
+						<MenuItem key={index} openMenu={menu} onClick={() => navigate(item.link)}>
 							<ButtonIcon alt='' src={item.source} />
 							<span>{item.nome}</span>
 						</MenuItem>
@@ -48,7 +51,7 @@ function Menu() {
 				<Divider></Divider>
 				<span style={{textAlign: 'justify', width: '70%', paddingBottom: '5px', fontWeight: 'Bold'}}>Explorar</span>
 				{items.slice(6).map((item, index) => (
-						<MenuItem key={index} openMenu={menu}>
+						<MenuItem key={index} openMenu={menu} onClick={() => navigate(item.link)}>
 							<ButtonIcon alt='' src={item.source} />
 							<span>{item.nome}</span>
 						</MenuItem>
