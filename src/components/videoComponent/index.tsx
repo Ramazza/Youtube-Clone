@@ -3,7 +3,7 @@ import {
 	Container, ImageBanner, TextCard, TextContainer, Title, TitleComponent,
 } from './styles';
 
-function VideoComponent() {
+function VideoComponent({ video }: any) {
 
 	return (
 		<Container>
@@ -13,9 +13,9 @@ function VideoComponent() {
 					SP
 				</ChannelImage>
 				<TextContainer>
-					<Title>How Much Do We Know About Sports?</Title>
-					<TextCard>Smosh Pit</TextCard>
-					<TextCard>128 mil vizualizações - há 4 horas</TextCard>
+					<Title>{video.title}</Title>
+					<TextCard>{video.channelName}</TextCard>
+					<TextCard>{video.views} vizualizações - há {video.time}</TextCard>
 				</TextContainer>
 			</TitleComponent>
 		</Container>

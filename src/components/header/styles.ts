@@ -71,6 +71,28 @@ export const SearchButton = styled.div`
 `;
 
 export const HeaderButtons = styled.div`
-	width: 200px;
+	width: 250px;
 	display: flex;
+	justify-content: end;
+`;
+
+export const UserContainer = styled.div`
+	display: flex;
+	align-items: center;
+	border: 1px solid #d3d3d3;
+	border-radius: 20px;
+	padding: 1px 15px;
+	margin-left: 10px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #dbeffc;
+	}
+`;
+
+export const LoginButton = styled.div`
+	border: none;
+	color: #29a1fb;
+	white-space: nowrap;
+	padding-left: 5px;
 `;

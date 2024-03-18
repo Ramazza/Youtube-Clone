@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 
 const items = [ 
 	{ nome: 'Início', source: IMAGES.HOME, link: '/' },
-	{ nome: 'Shorts',	source: IMAGES.VIDEO_FILES, link: '/' },
-	{ nome: 'Inscrições', source: IMAGES.LIBRARY, link: '/' },
-	{ nome: 'Youtube Music', source: IMAGES.PLAY, link: '/' },
+	{ nome: 'Shorts',	source: IMAGES.VIDEO_FILES, link: '/shorts' },
+	{ nome: 'Inscrições', source: IMAGES.LIBRARY, link: '/subscriptions' },
+	{ nome: 'Youtube Music', source: IMAGES.PLAY, link: '/music' },
 	{ nome: 'Biblioteca', source: IMAGES.FOLDERS, link: '/library' },
 	{ nome: 'Histórico',	source: IMAGES.HISTORY, link: '/history' },
 	{ nome: 'Em alta', source: IMAGES.FIRE, link: '/' },
