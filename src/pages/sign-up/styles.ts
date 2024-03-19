@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginPage = styled.div<{logged: boolean}>`
+export const SignInPage = styled.div`
 	position: absolute;
 	z-index: 1;
 	top: 0;
@@ -99,5 +99,30 @@ export const LoginButton = styled.button`
 	&:hover {
 		background-color: #2c74f4;
 		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+	}
+`;
+
+export const PasswordContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+`;
+
+export const PasswordInput = styled.input`
+	width: 45%;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #d3d3d3;
+	padding-left: 10px;
+	outline: 0;
+
+	&::placeholder {
+		font-size: 1.1em;
+		font-weight: 500;
+	}
+
+	&:focus {
+		border: 3px solid #1c74ec;
+		outline: 0;
 	}
 `;

@@ -8,6 +8,10 @@ export const UserStorage = ({ children }: any) => {
 	const [user, setUser] = useState({});
 	const [token, setToken] = useState(localStorage.getItem('token') as string);
 
+	const navigateTo = (path: any) => {
+		window.location.href = path;
+	};
+
 	const getUser = (token: string) => {
 		api.get('/user/get-user', {headers:{Authorization: token}}).then(({ data }) => {
 			setUser(data.user);
@@ -33,8 +37,17 @@ export const UserStorage = ({ children }: any) => {
 			localStorage.setItem('token', data.token);
 			setToken(data.token);
 			getUser(data.token);
+			navigateTo('/');
 		}).catch((error) => {
 			console.log('Não foi possível fazer o login', error);
+		})
+	}
+
+	const handleCreateAccount = (name: string, email: string, password: string) => {
+		api.post('/user/sign-up', {name, email, password}).then(() => {
+			handleLogin(email, password);
+		}).catch((error) => {
+			console.log('Não foi possível criar o usuário', error);
 		})
 	}
 
@@ -44,6 +57,7 @@ export const UserStorage = ({ children }: any) => {
 			user, 
 			handleLogin,
 			logOut,
+			handleCreateAccount,
 		}}>
 			{children}
 		</UserContext.Provider>

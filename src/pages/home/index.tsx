@@ -6,7 +6,7 @@ import { MenuContext } from '../../contexts/menuContext';
 
 function Home() {
 
-	const {menu} = useContext(MenuContext);
+	const { menu } = useContext(MenuContext);
 
 	const videos = [
 		{
@@ -49,7 +49,7 @@ function Home() {
 	return (
 		<Container>
 			<VideoCategories />
-			<VideoContainer openMenu = {menu}>
+			<VideoContainer openMenu = {menu} >
 					{videos.map((video) => (
 						<VideoComponent video={video}/>
 					))}			

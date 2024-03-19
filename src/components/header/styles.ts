@@ -90,9 +90,33 @@ export const UserContainer = styled.div`
 	}
 `;
 
+export const LoginContainer = styled.div`
+	display: flex;
+`;
+
 export const LoginButton = styled.div`
 	border: none;
 	color: #29a1fb;
 	white-space: nowrap;
 	padding-left: 5px;
+`;
+
+export const DropdownContainer = styled.div<{dropdownOpen: boolean}>`
+	display: ${({ dropdownOpen }) => dropdownOpen? 'none': 'flex'};
+	position: absolute;
+	top: 55px;
+	right: 10px;
+	width: 150px;
+	height: 200px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background-color: lightgray;
+`;
+
+export const ProfileButton = styled.button`
+	width: 40%;
+	height: 15%;
+	border-radius: 10px;
+	border: none;
 `;
