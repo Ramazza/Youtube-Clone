@@ -13,7 +13,7 @@ export const SignInPage = styled.div`
 
 export const Container = styled.div`
 	width: 27vw;
-	height: 60vh;
+	height: 65vh;
 	margin: 0 auto;
 	margin-top: 15vh;
 	display: flex;
@@ -48,10 +48,10 @@ export const LoginContainer = styled.div`
 	padding-bottom: 20px;
 `;
 
-export const LoginInput = styled.input`
+export const NameInput = styled.input<{nameError: string}>`
 	height: 30px;
 	border-radius: 5px;
-	border: 1px solid #d3d3d3;
+	border: 2px solid ${({nameError}) => nameError !== '' ? 'red' : '#d3d3d3'};
 	padding-left: 10px;
 	outline: 0;
 
@@ -61,11 +61,31 @@ export const LoginInput = styled.input`
 	}
 
 	&:focus {
-		border: 3px solid #1c74ec;
+		border: 2px solid ${({nameError}) => nameError !== '' ? 'red' : '#1c74ec'};
 		outline: 0;
 	}
 
 `;
+
+export const EmailInput = styled.input<{emailError: string}>`
+	height: 30px;
+	border-radius: 5px;
+	border: 2px solid ${({emailError}) => emailError !== '' ? 'red' : '#d3d3d3'};
+	padding-left: 10px;
+	outline: 0;
+
+	&::placeholder {
+		font-size: 1.1em;
+		font-weight: 500;
+	}
+
+	&:focus {
+		border: 2px solid ${({emailError}) => emailError !== '' ? 'red' : '#1c74ec'};
+		outline: 0;
+	}
+
+`;
+
 
 export const ButtonContainer = styled.div`
 	width: 70%;
@@ -108,11 +128,11 @@ export const PasswordContainer = styled.div`
 	gap: 10px;
 `;
 
-export const PasswordInput = styled.input`
+export const PasswordInput = styled.input<{passwordError: string}>`
 	width: 45%;
 	height: 30px;
 	border-radius: 5px;
-	border: 1px solid #d3d3d3;
+	border: 2px solid ${({passwordError}) => passwordError.includes('Use') || passwordError === '' ? '#d3d3d3' : 'red'};
 	padding-left: 10px;
 	outline: 0;
 
@@ -122,7 +142,37 @@ export const PasswordInput = styled.input`
 	}
 
 	&:focus {
-		border: 3px solid #1c74ec;
+		border: 2px solid ${({passwordError}) => passwordError.includes('Use') || passwordError === '' ? '#1c74ec' : 'red'};
 		outline: 0;
 	}
+`;
+
+export const ShowPasswordContainer = styled.div`
+	height: 30px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+`;
+
+export const ShowPasswordButton = styled.button<{showPassword: string}>`
+	height: 15px;
+	border: 2px solid ${({ showPassword }) => showPassword.includes('password') ? '#d3d3d3' : 'grey'};
+	border-radius: 3px;
+	background-color: ${({ showPassword }) => showPassword.includes('password') ? 'white' : '#1c74ec'};
+
+	&:hover {
+		box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+	}
+`;
+
+export const ShowPassword = styled.span`
+	font-size: 0.9em;
+	font-weight: 470;
+	cursor: pointer;
+`;
+
+export const ErrorText = styled.span<{passwordError: string}>`
+	font-size: 0.8em;
+	font-weight: 500;
+	color: ${({passwordError}) => passwordError.includes('Use') ? '#1c74ec' : 'red'};
 `;

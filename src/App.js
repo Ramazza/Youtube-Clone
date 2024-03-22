@@ -43,8 +43,11 @@ function App() {
 
 export default App;
 
-// 1- Deixar a tela de login no padrão ok
-// 2- Implementar um dropdown do ícone de usuário ok
-// 3- Criar a tela e integração para cadastro de usuário
+// Desafios:
+// 1- Deixar a tela de login no padrão OK
+// 2- Implementar um dropdown do ícone de usuário OK
+// 3- Criar a tela e integração para cadastro de usuário OK
+
+
 // 4- Criar a tela e integração para cadastro de vídeo
 // 5- Implementação de pesquisa

@@ -101,3 +101,35 @@ export const LoginButton = styled.button`
 		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
 	}
 `;
+
+export const ErrorText = styled.span<{loginError: boolean}>`
+	display: ${({ loginError }) => loginError? 'block': 'none'};
+	padding-left: 5px;
+	font-size: 0.8em;
+	font-weight: 500;
+	color: red;
+`;
+
+export const ShowPasswordContainer = styled.div`
+	height: 30px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+`;
+
+export const ShowPasswordButton = styled.button<{showPassword: string}>`
+	height: 15px;
+	border: 2px solid ${({ showPassword }) => showPassword.includes('password') ? '#d3d3d3' : 'grey'};
+	border-radius: 3px;
+	background-color: ${({ showPassword }) => showPassword.includes('password') ? 'white' : '#1c74ec'};
+
+	&:hover {
+		box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+	}
+`;
+
+export const ShowPassword = styled.span`
+	font-size: 0.9em;
+	font-weight: 470;
+	cursor: pointer;
+`;
