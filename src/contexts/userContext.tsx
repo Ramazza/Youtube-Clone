@@ -7,16 +7,17 @@ export const UserStorage = ({ children }: any) => {
 	const [login, setLogin] = useState(false);
 	const [user, setUser] = useState({});
 	const [token, setToken] = useState(localStorage.getItem('token') as string);
+	const [searchResult, setSearchResult] = useState([])
+	const [videos, setVideos] = useState([])
 
 	const [loginError, setLoginError] = useState(false)
 	const [nameError, setNameError] = useState('');
 	const [emailError, setEmailError] = useState('');
 	const [passwordError, setPasswordError] = useState('Use 9 caracteres com uma combinação de letras, números e símbolos.');
-
-
-	const navigateTo = (path: any) => {
-		window.location.href = path;
-	};
+	
+	useEffect(() => {
+		getUser(token);
+	}, [token])
 
 	interface FormFields {
 		name: string;
@@ -24,6 +25,10 @@ export const UserStorage = ({ children }: any) => {
 		password: string;
 		password2: string;
 	}
+
+	const navigateTo = (path: any) => {
+		window.location.href = path;
+	};
 
 	const checkLogin = (formData: FormFields) => {
 		const { name, email, password, password2 } = formData;
@@ -64,10 +69,6 @@ export const UserStorage = ({ children }: any) => {
 		})
 	}
 
-	useEffect(() => {
-		getUser(token);
-	}, [token])
-
 	const logOut = () => {
 		localStorage.removeItem('token');
 		setLogin(false);
@@ -92,12 +93,12 @@ export const UserStorage = ({ children }: any) => {
 
 		const loginCheckResult = checkLogin({ name, email, password, password2 });
 
-   	if (typeof loginCheckResult === 'object') {
+      if (typeof loginCheckResult === 'object') {
 			setNameError(loginCheckResult.name || '');
 			setEmailError(loginCheckResult.email || '');
 			setPasswordError(loginCheckResult.password || '');
 			return;
-   	}
+      }
 
 		api.post('/user/sign-up', {name, email, password}).then(() => {
 			setNameError('');
@@ -112,6 +113,22 @@ export const UserStorage = ({ children }: any) => {
 
 	}
 
+	const searchVideos = (search: string) => {
+		api.get('/videos/search', { params: { search } }).then(({ data }) => {
+			setSearchResult(data.videos)
+		}).catch((error => {
+			console.log('Não foi possível buscar os vídeos', error);
+		}))
+	}
+
+	const getVideos = (user_id: string) => {
+		api.get('/videos/get-videos', { params: { user_id } }).then(({ data }) => {
+			setVideos(data.videos)
+		}).catch((error => {
+			console.log('Não foi possível buscar os vídeos', error);
+		}))
+	}
+
 	return(
 		<UserContext.Provider value={{
 			login,
@@ -120,9 +137,13 @@ export const UserStorage = ({ children }: any) => {
 			emailError, 
 			passwordError, 
 			loginError,
+			searchResult,
+			videos,
 			handleLogin,
 			logOut,
 			handleCreateAccount,
+			searchVideos,
+			getVideos,
 		}}>
 			{children}
 		</UserContext.Provider>

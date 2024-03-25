@@ -11,6 +11,7 @@ import Shorts from './pages/shorts';
 import Subscriptions from './pages/subscription';
 import Music from './pages/music';
 import SignUp from './pages/sign-up';
+import MyVideos from './pages/my-videos';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
 							<Route path='/' element={<Home/>} />
 							<Route path='/login' element={<Login />} />		
 							<Route path='/sign-up' element={<SignUp />} />		
+							<Route path='/my-videos' element={<MyVideos />} />		
 							<Route path='/shorts' element={<Shorts/>} />
 							<Route path='/subscriptions' element={<Subscriptions/>} />
 							<Route path='/music' element={<Music/>} />
@@ -51,3 +53,5 @@ export default App;
 
 // 4- Criar a tela e integração para cadastro de vídeo
 // 5- Implementação de pesquisa
+
+// No dropdown colocar um botao para ir para uma pagina que mostre os videos do usuario

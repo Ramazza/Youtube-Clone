@@ -108,15 +108,21 @@ export const DropdownContainer = styled.div<{dropdownOpen: boolean}>`
 	right: 10px;
 	width: 150px;
 	height: 200px;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	gap: 10px;
 	border-radius: 10px;
 	background-color: lightgray;
 `;
 
 export const ProfileButton = styled.button`
-	width: 40%;
-	height: 15%;
+	padding: 10px 20px;
 	border-radius: 10px;
 	border: none;
+	white-space: nowrap;
+
+	&:hover {
+		box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+	}
 `;

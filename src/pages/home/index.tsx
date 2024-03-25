@@ -51,7 +51,8 @@ function Home() {
 			<VideoCategories />
 			<VideoContainer openMenu = {menu} >
 					{videos.map((video) => (
-						<VideoComponent video={video}/>
+						// <VideoComponent video={video}/>
+						<span>oi</span>
 					))}			
 			</VideoContainer>
 		</Container>

@@ -28,8 +28,9 @@ import { useNavigate } from 'react-router-dom';
 
 function Header() {
 
-	const { login, logOut, user } = useContext(UserContext);
+	const { login, logOut, user, searchVideos, getVideos } = useContext(UserContext);
 	const {menu, setMenu} = useContext(MenuContext);
+	const [search, setSearch] = useState('');
 	const [openProfile, setOpenProfile] = useState(true)
 	const navigate = useNavigate()
 
@@ -42,6 +43,13 @@ function Header() {
 	const handleLogOut = () => {
 		logOut()
 		setOpenProfile(true)
+		navigate('/')
+	}
+
+	const handleMyVideos = () => {
+		setOpenProfile(true)
+		getVideos(user.id)
+		navigate('/my-videos')
 	}
 
 	return (
@@ -61,9 +69,9 @@ function Header() {
 
 			<SearchContainer>
 					<SearchInputContainer>
-						<SearchInput placeholder="Pesquisar" />
+						<SearchInput placeholder="Pesquisar" value={search} onChange={(e) => setSearch(e.target.value)}/>
 					</SearchInputContainer>
-					<SearchButton>
+					<SearchButton onClick={() => searchVideos(search)}>
 						<ButtonIcon alt='' src={Search} />
 					</SearchButton>
 					<ButtonContainer margin='0 0 0 10px'>
@@ -85,6 +93,7 @@ function Header() {
 							{userName}
 						</ButtonContainer>
 						<DropdownContainer dropdownOpen={openProfile}>
+							<ProfileButton onClick={() => handleMyVideos()}>Meus vídeos</ProfileButton>
 							<ProfileButton onClick={() => handleLogOut()}>Sair</ProfileButton>
 						</DropdownContainer>
 					</>
