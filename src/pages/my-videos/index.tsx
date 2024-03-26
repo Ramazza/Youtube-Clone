@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { MyVideosContainer, ProfileName, CreateVideo, ShowMyVideos, Container, VideoContainer } from './styles';
 import { UserContext } from '../../contexts/userContext';
 import VideoComponent from '../../components/videoComponent';
+import { useNavigate } from 'react-router-dom';
 
 function MyVideos() {
 
@@ -15,6 +16,9 @@ function MyVideos() {
 
 
 	const { user, videos } = useContext(UserContext);
+
+	const navigate = useNavigate();
+
 
 	interface Video {
 		title: string;
@@ -33,7 +37,7 @@ function MyVideos() {
 	return (
 		<MyVideosContainer>
 			<ProfileName>{userName}</ProfileName>
-			<CreateVideo>Adicionar Vídeo</CreateVideo>
+			<CreateVideo onClick={() => navigate('/create-video')}>Adicionar Vídeo</CreateVideo>
 			<ShowMyVideos>
 				<Container>
 					<VideoContainer>

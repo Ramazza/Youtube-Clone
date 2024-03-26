@@ -129,6 +129,16 @@ export const UserStorage = ({ children }: any) => {
 		}))
 	}
 
+	const createVideo = (title: string, description: string, user_id: string, thumbnail: string) => {
+		api.post('/videos/create-video', {title, description, user_id, thumbnail}).then(() => {
+			console.log('O vídeo foi criado');
+		}).catch((error => {
+			console.log('Não foi possível criar o vídeo', error);
+		}))
+	}
+
+
+
 	return(
 		<UserContext.Provider value={{
 			login,
@@ -144,6 +154,7 @@ export const UserStorage = ({ children }: any) => {
 			handleCreateAccount,
 			searchVideos,
 			getVideos,
+			createVideo,
 		}}>
 			{children}
 		</UserContext.Provider>

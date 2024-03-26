@@ -31,13 +31,13 @@ function VideoComponent({ video }: { video: { title: string; description: string
 	let howLongAgo: string = '';
 
 	if (difference >= DAY) {
-		howLongAgo = `${Math.floor(difference / DAY)} days`;
+		howLongAgo = `${Math.floor(difference / DAY)} dias`;
 	} else if (difference >= HOUR) {
-		howLongAgo = `${Math.floor(difference / HOUR)} hours`;
+		howLongAgo = `${Math.floor(difference / HOUR)} horas`;
 	} else if (difference >= MINUTE) {
-		howLongAgo = `${Math.floor(difference / MINUTE)} minutes`;
+		howLongAgo = `${Math.floor(difference / MINUTE)} minutos`;
 	} else {
-		howLongAgo = `${Math.floor(difference / SECOND)} seconds`;
+		howLongAgo = `${Math.floor(difference / SECOND)} segundos`;
 	}
 
 	return (

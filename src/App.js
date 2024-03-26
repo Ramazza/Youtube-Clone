@@ -12,6 +12,7 @@ import Subscriptions from './pages/subscription';
 import Music from './pages/music';
 import SignUp from './pages/sign-up';
 import MyVideos from './pages/my-videos';
+import CreateVideo from './pages/create-video';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 							<Route path='/login' element={<Login />} />		
 							<Route path='/sign-up' element={<SignUp />} />		
 							<Route path='/my-videos' element={<MyVideos />} />		
+							<Route path='/create-video' element={<CreateVideo />} />		
 							<Route path='/shorts' element={<Shorts/>} />
 							<Route path='/subscriptions' element={<Subscriptions/>} />
 							<Route path='/music' element={<Music/>} />
