@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
+import { OuterContainer, Container, Input, Button } from './style';
 
 function CreateVideo() {
 
@@ -17,12 +18,14 @@ function CreateVideo() {
 	}
 
 	return (
-		<div style={{display: 'flex', flexDirection: 'column'}}>
-			<input type="text" placeholder='Título' value={title} onChange={(e) => setTitle(e.target.value)}/>
-			<input type="text" placeholder='Descrição' value={description} onChange={(e) => setDescription(e.target.value)}/>
-			<input type="text" placeholder='Thumbnail' value={thumbnail} onChange={(e) => setThumbnail(e.target.value)}/>
-			<button onClick={() => handleCreateVideo()}>criar video</button>
-		</div>
+		<OuterContainer>
+			<Container>
+				<Input placeholder='Título do vídeo' value={title} onChange={(e) => setTitle(e.target.value)}/>
+				<Input placeholder='Descrição do vídeo' value={description} onChange={(e) => setDescription(e.target.value)}/>
+				<Input placeholder='URL da thumbnail ex: https://images.server.com/120/1209131.jpg' value={thumbnail} onChange={(e) => setThumbnail(e.target.value)}/>
+				<Button onClick={() => handleCreateVideo()}>Adicionar vídeo</Button>
+			</Container>
+		</OuterContainer>
 	);
 };
 

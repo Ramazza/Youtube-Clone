@@ -1,13 +1,9 @@
-import { useContext } from 'react';
 import {
 	ChannelImage,
 	Container, ImageBanner, TextCard, TextContainer, Title, TitleComponent,
 } from './styles';
-import { UserContext } from '../../contexts/userContext';
 
 function VideoComponent({ video }: { video: { title: string; user_name: string; description: string; thumbnail: string; upload_time: string } }) {
-
-	const { user } = useContext(UserContext);
 
 	let userName: string = ''
 

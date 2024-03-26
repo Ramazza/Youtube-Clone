@@ -18,46 +18,6 @@ function Home() {
 		upload_time: string;
 	}
 
-	console.log(allVideos)
-
-// 	const videos = [
-// 		{
-// 		image: '', 
-// 		title: 'How Much Do We Know About Sports?',
-// 		channelName: 'Smosh Pit',
-// 		views: '128 mil',
-// 		time: '4 horas'
-// 	},
-// 		{
-// 		image: '', 
-// 		title: 'How Much Do We Know About Sports?',
-// 		channelName: 'Smosh Pit',
-// 		views: '128 mil',
-// 		time: '4 horas'
-// 	},
-// 		{
-// 		image: '', 
-// 		title: 'How Much Do We Know About Sports?',
-// 		channelName: 'Smosh Pit',
-// 		views: '128 mil',
-// 		time: '4 horas'
-// 	},
-// 		{
-// 		image: '', 
-// 		title: 'How Much Do We Know About Sports?',
-// 		channelName: 'Smosh Pit',
-// 		views: '128 mil',
-// 		time: '4 horas'
-// 	},
-// 		{
-// 		image: '', 
-// 		title: 'How Much Do We Know About Sports?',
-// 		channelName: 'Smosh Pit',
-// 		views: '128 mil',
-// 		time: '4 horas'
-// 	},
-// ]
-
 	useEffect(() => {
 		getAllVideos()
 	}, [])
