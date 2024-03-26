@@ -10,11 +10,10 @@ function CreateVideo() {
 	const [thumbnail, setThumbnail] = useState('');
 	const navigate = useNavigate();
 
-
 	const handleCreateVideo = () => {
-		createVideo(title, description, user.id, thumbnail)
-		getVideos(user.id)
-		navigate('/my-videos')
+		createVideo(title, description, user.id, user.nome, thumbnail);
+		getVideos(user.id);
+		navigate('/my-videos');
 	}
 
 	return (

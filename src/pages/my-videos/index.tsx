@@ -22,6 +22,7 @@ function MyVideos() {
 
 	interface Video {
 		title: string;
+		user_name: string;
 		description: string;
 		thumbnail: string;
 		upload_time: string;

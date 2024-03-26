@@ -5,14 +5,14 @@ import {
 } from './styles';
 import { UserContext } from '../../contexts/userContext';
 
-function VideoComponent({ video }: { video: { title: string; description: string; thumbnail: string; upload_time: string } }) {
+function VideoComponent({ video }: { video: { title: string; user_name: string; description: string; thumbnail: string; upload_time: string } }) {
 
 	const { user } = useContext(UserContext);
 
 	let userName: string = ''
 
-	if(user.nome !== undefined){
-		userName = user.nome.charAt(0).toUpperCase();
+	if(video.user_name !== undefined){
+		userName = video.user_name.charAt(0).toUpperCase();
 	}
 
 	const min = 1;
@@ -47,7 +47,7 @@ function VideoComponent({ video }: { video: { title: string; description: string
 				<ChannelImage>{userName}</ChannelImage>
 				<TextContainer>
 					<Title>{video.title}</Title>
-					<TextCard>{user.nome}</TextCard>
+					<TextCard>{video.user_name}</TextCard>
 					<TextCard>{views} vizualizações - há {howLongAgo}</TextCard>
 				</TextContainer>
 			</TitleComponent>

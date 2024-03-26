@@ -9,6 +9,7 @@ export const UserStorage = ({ children }: any) => {
 	const [token, setToken] = useState(localStorage.getItem('token') as string);
 	const [searchResult, setSearchResult] = useState([])
 	const [videos, setVideos] = useState([])
+	const [allVideos, setAllVideos] = useState([])
 
 	const [loginError, setLoginError] = useState(false)
 	const [nameError, setNameError] = useState('');
@@ -112,12 +113,12 @@ export const UserStorage = ({ children }: any) => {
 		
 
 	}
-
-	const searchVideos = (search: string) => {
-		api.get('/videos/search', { params: { search } }).then(({ data }) => {
-			setSearchResult(data.videos)
+	
+	const createVideo = (title: string, description: string, user_id: string, user_name: string, thumbnail: string) => {
+		api.post('/videos/create-video', {title, description, user_id, user_name, thumbnail}).then(() => {
+			console.log('O vídeo foi criado');
 		}).catch((error => {
-			console.log('Não foi possível buscar os vídeos', error);
+			console.log('Não foi possível criar o vídeo', error);
 		}))
 	}
 
@@ -129,15 +130,21 @@ export const UserStorage = ({ children }: any) => {
 		}))
 	}
 
-	const createVideo = (title: string, description: string, user_id: string, thumbnail: string) => {
-		api.post('/videos/create-video', {title, description, user_id, thumbnail}).then(() => {
-			console.log('O vídeo foi criado');
+	const getAllVideos = () => {
+		api.get('/videos/get-all-videos').then(({ data }) => {
+			setAllVideos(data.videos)
 		}).catch((error => {
-			console.log('Não foi possível criar o vídeo', error);
+			console.log('Não foi possível buscar os vídeos', error);
 		}))
 	}
 
-
+	const searchVideos = (search: string) => {
+		api.get('/videos/search', { params: { search } }).then(({ data }) => {
+			setSearchResult(data.videos)
+		}).catch((error => {
+			console.log('Não foi possível buscar os vídeos', error);
+		}))
+	}
 
 	return(
 		<UserContext.Provider value={{
@@ -149,12 +156,14 @@ export const UserStorage = ({ children }: any) => {
 			loginError,
 			searchResult,
 			videos,
+			allVideos,
 			handleLogin,
 			logOut,
 			handleCreateAccount,
 			searchVideos,
 			getVideos,
 			createVideo,
+			getAllVideos,
 		}}>
 			{children}
 		</UserContext.Provider>
