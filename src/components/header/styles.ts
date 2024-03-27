@@ -107,22 +107,28 @@ export const DropdownContainer = styled.div<{dropdownOpen: boolean}>`
 	top: 55px;
 	right: 10px;
 	width: 150px;
-	height: 200px;
+	height: 150px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 10px;
 	border-radius: 10px;
-	background-color: lightgray;
+	background-color: rgba(5, 5, 5, 0.4);
 `;
 
 export const ProfileButton = styled.button`
-	padding: 10px 20px;
-	border-radius: 10px;
+	width: 120px;
 	border: none;
+	border-radius: 4px;
+	background-color: #1c74ec;
+	color: white;
+	font-weight: 550;
+	padding: 10px 15px;
+	margin-bottom: 10px;
 	white-space: nowrap;
+	cursor: pointer;
 
 	&:hover {
-		box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+		background-color: #2c74f4;
+		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
 	}
 `;
